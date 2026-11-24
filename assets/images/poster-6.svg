@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900">
+  <defs>
+    <linearGradient id="stageBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090909"/>
+      <stop offset="50%" stop-color="#350A19"/>
+      <stop offset="100%" stop-color="#090909"/>
+    </linearGradient>
+    <polygon id="spotCone" points="300,70 110,730 490,730"/>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAD092" stop-opacity="0.62"/>
+      <stop offset="65%" stop-color="#D6B46A" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#500F24" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#stageBg)"/>
+  <!-- Velvet curtains left & right -->
+  <path d="M0 0 L155 0 Q115 360 135 900 L0 900 Z" fill="#500F24" opacity="0.88"/>
+  <path d="M600 0 L445 0 Q485 360 465 900 L600 900 Z" fill="#500F24" opacity="0.88"/>
+  <!-- Spotlight Cone -->
+  <polygon points="300,60 115,720 485,720" fill="url(#beamGrad)"/>
+  <ellipse cx="300" cy="720" rx="185" ry="28" fill="#D6B46A" opacity="0.28"/>
+  <!-- Grand Piano / Stage Silhouette -->
+  <path d="M235 670 Q275 630 345 645 Q375 655 370 688 L235 692 Z" fill="#090909"/>
+  <rect x="242" y="692" width="6" height="32" fill="#090909"/>
+  <rect x="355" y="688" width="6" height="36" fill="#090909"/>
+  <!-- Golden floating motes -->
+  <g fill="#EAD092">
+    <circle cx="270" cy="290" r="2.2" opacity="0.75"/>
+    <circle cx="330" cy="360" r="1.8" opacity="0.6"/>
+    <circle cx="290" cy="445" r="2.5" opacity="0.8"/>
+    <circle cx="345" cy="515" r="1.5" opacity="0.65"/>
+    <circle cx="255" cy="560" r="2" opacity="0.5"/>
+  </g>
+  <rect x="24" y="24" width="552" height="852" rx="8" fill="none" stroke="#D6B46A" stroke-opacity="0.26" stroke-width="1.2"/>
+</svg>

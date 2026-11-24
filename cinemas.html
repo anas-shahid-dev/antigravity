@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinemas &amp; Locations — CinePass | Your Movie. Your Seat. Your Experience.</title>
+  <meta name="description" content="Explore luxury demonstration cinema locations across Pakistan, compare auditorium facilities, and view interior galleries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <div id="cp-header-slot"></div>
+
+  <main class="page-shell">
+    <!-- A. Cinema Hero Section -->
+    <section class="hero-banner" aria-label="Cinemas Discovery Hero">
+      <div class="hero-banner__media">
+        <img src="assets/images/hero-cinema.jpg" alt="Luxury dark velvet cinema auditorium with warm champagne lighting" />
+        <div class="hero-banner__scrim"></div>
+      </div>
+
+      <div class="container hero-banner__content">
+        <div class="reveal">
+          <span class="eyebrow">Cinema Discovery · Demonstration Listings</span>
+          <h1 class="hero-banner__title">Discover Your Perfect Cinema.</h1>
+          <p class="hero-banner__subtitle">
+            Find extraordinary movie experiences at CinePass cinema locations.
+          </p>
+        </div>
+
+        <!-- C. Search & Filter Bar -->
+        <div class="cinema-search-bar reveal" role="search" aria-label="Search and filter cinemas">
+          <div class="field" style="gap:0;">
+            <label for="cinema-search-input" class="sr-only">Search by cinema name or city</label>
+            <input
+              type="search"
+              id="cinema-search-input"
+              class="field__input"
+              placeholder="Search by cinema name or city (e.g. Nueplex, Lahore)..."
+            />
+          </div>
+
+          <div class="field" style="gap:0;">
+            <label for="cinema-city-filter" class="sr-only">Filter by city</label>
+            <select id="cinema-city-filter" class="field__select">
+              <option value="all">All Cities</option>
+              <option value="Lahore">Lahore</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="Rawalpindi">Rawalpindi</option>
+            </select>
+          </div>
+
+          <div class="field" style="gap:0;">
+            <label for="cinema-facility-filter" class="sr-only">Filter by facility</label>
+            <select id="cinema-facility-filter" class="field__select">
+              <option value="all">All Facilities</option>
+              <option value="IMAX Laser">IMAX Laser</option>
+              <option value="Dolby Atmos">Dolby Atmos</option>
+              <option value="Gold Recliner">Gold Recliner</option>
+              <option value="VIP Lounge">VIP Lounge</option>
+              <option value="3D Digital">3D Digital</option>
+              <option value="Valet Parking">Valet Parking</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn--ghost" id="clear-cinema-filters-btn">Clear Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. Cinema Location Cards -->
+    <section class="container" style="padding-top:3.25rem;" aria-labelledby="cinemas-list-heading">
+      <div class="section-header reveal">
+        <div>
+          <span class="eyebrow">Sample Venues Across Pakistan</span>
+          <h2 class="section-title" id="cinemas-list-heading">Curated Cinema Locations</h2>
+          <p class="section-subtitle">
+            Demonstration showcase listings featuring iconic cinema destinations across Karachi, Lahore, Islamabad, and Rawalpindi (not officially integrated booking partners).
+          </p>
+        </div>
+        <div id="cinema-results-count" style="font-size:0.9rem;color:var(--cp-gold);font-weight:600;"></div>
+      </div>
+
+      <div class="cinemas-grid" id="cinemas-grid"></div>
+    </section>
+
+    <!-- E. Cinema Gallery -->
+    <section class="container" style="padding-top:4.5rem;" aria-labelledby="gallery-heading">
+      <div class="section-header reveal">
+        <div>
+          <span class="eyebrow">Architectural Showcase</span>
+          <h2 class="section-title" id="gallery-heading">Inside the Auditorium Experience</h2>
+          <p class="section-subtitle">
+            Explore luxury foyers, laser-calibrated auditoriums, artisanal concession lounges, and acoustic architecture. Click any view to inspect full screen.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-grid reveal" id="cinema-gallery">
+        <figure class="gallery-tile gallery-tile--wide" tabindex="0" role="button" data-gallery-index="0">
+          <img src="assets/images/hero-cinema.jpg" alt="Private VIP velvet cinema auditorium" />
+          <figcaption class="gallery-tile__caption">
+            <h3>Grand Premiere Auditorium</h3>
+            <p>Tiered burgundy velvet seating with indirect champagne cove illumination.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-tile gallery-tile--std" tabindex="0" role="button" data-gallery-index="1">
+          <img src="assets/images/cinema-nueplex.jpg" alt="Upscale marble cinema foyer with brass chandeliers" />
+          <figcaption class="gallery-tile__caption">
+            <h3>Obsidian &amp; Brass Foyer</h3>
+            <p>Double-height reception lobby with brushed brass geometric lighting.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-tile gallery-tile--half" tabindex="0" role="button" data-gallery-index="2">
+          <img src="assets/images/hero-offers.jpg" alt="VIP cinema lounge and artisanal bar" />
+          <figcaption class="gallery-tile__caption">
+            <h3>Noir Member Lounge</h3>
+            <p>Pre-show hospitality, espresso bar, and private concierge check-in.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-tile gallery-tile--half" tabindex="0" role="button" data-gallery-index="3">
+          <img src="assets/images/cinema-imax.svg" alt="Curved IMAX Laser auditorium illustration" />
+          <figcaption class="gallery-tile__caption">
+            <h3>Laser IMAX Acoustic Hall</h3>
+            <p>Wall-to-wall curved screen geometry paired with 64-channel spatial audio.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <div id="cp-footer-slot"></div>
+
+  <!-- D. Cinema Details Modal -->
+  <div class="cp-modal-backdrop" id="cinema-details-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-cinema-name">
+    <div class="cp-modal cp-modal--wide">
+      <div class="cp-modal__head">
+        <div>
+          <span class="eyebrow" id="modal-cinema-city">City · Demonstration Listing</span>
+          <h2 class="cp-modal__title" id="modal-cinema-name">Cinema Name</h2>
+          <p class="cp-modal__sub" id="modal-cinema-address">Address</p>
+        </div>
+        <button type="button" class="icon-btn" data-modal-close aria-label="Close cinema details">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16 / 8;margin-bottom:1.25rem;border:1px solid var(--border-subtle);">
+        <img id="modal-cinema-img" src="assets/images/hero-cinema.jpg" alt="Selected cinema preview" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+
+      <p id="modal-cinema-desc" style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:1.25rem;"></p>
+
+      <div class="info-list" style="margin-top:0;">
+        <div class="info-tile">
+          <div class="info-tile__label">Available Screens</div>
+          <div class="info-tile__value" id="modal-cinema-screens">—</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-tile__label">Seating Capacity (Sample)</div>
+          <div class="info-tile__value" id="modal-cinema-capacity">—</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-tile__label">Parking Information</div>
+          <div class="info-tile__value" id="modal-cinema-parking">—</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-tile__label">Food &amp; Lounge</div>
+          <div class="info-tile__value" id="modal-cinema-food">—</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-tile__label">Contact Information</div>
+          <div class="info-tile__value" id="modal-cinema-contact">—</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-tile__label">Accessibility &amp; Notes</div>
+          <div class="info-tile__value" id="modal-cinema-extra">—</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.15rem;">
+        <div class="info-tile__label" style="margin-bottom:0.5rem;">Facilities &amp; Formats</div>
+        <div class="facility-chips" id="modal-cinema-facilities"></div>
+      </div>
+
+      <div class="cp-modal__foot">
+        <button type="button" class="btn btn--ghost" data-modal-close>Close</button>
+        <button type="button" class="btn btn--primary" id="modal-view-shows-btn">View Shows</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery Lightbox Modal -->
+  <div class="cp-modal-backdrop" id="gallery-lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightbox-title">
+    <div class="cp-modal cp-modal--wide">
+      <div class="cp-modal__head">
+        <div>
+          <span class="eyebrow">Cinema Gallery</span>
+          <h2 class="cp-modal__title" id="lightbox-title">Interior Preview</h2>
+          <p class="cp-modal__sub" id="lightbox-caption"></p>
+        </div>
+        <button type="button" class="icon-btn" data-modal-close aria-label="Close lightbox">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16 / 9;border:1px solid var(--border-gold);">
+        <img id="lightbox-img" src="assets/images/hero-cinema.jpg" alt="Cinema gallery preview" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/cinemas.js"></script>
+</body>
+</html>

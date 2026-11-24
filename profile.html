@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile — CinePass | Your Movie. Your Seat. Your Experience.</title>
+  <meta name="description" content="Manage your CinePass luxury cinema membership, personal statistics, favourite movies, and account preferences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <div id="cp-header-slot"></div>
+
+  <main class="page-shell" id="profile-main">
+    <!-- Signed-out fallback banner (shown only when user clicks Logout) -->
+    <section class="container" id="logged-out-view" style="display:none;padding:5rem 0 2rem;">
+      <div class="glass-card" style="padding:3rem 2rem;text-align:center;max-width:580px;margin-inline:auto;">
+        <span class="eyebrow">Session Ended</span>
+        <h1 class="display-title" style="font-size:clamp(1.85rem,3.5vw,2.6rem);margin-top:0.6rem;">You have signed out of CinePass</h1>
+        <p style="color:var(--text-secondary);margin:0.85rem auto 1.75rem;max-width:44ch;">
+          Your saved profile, favourite films, and preferences remain safely stored on this device. Sign back in anytime to continue.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;">
+          <button type="button" class="btn btn--primary" id="sign-back-in-btn">Sign Back In</button>
+          <a href="cinemas.html" class="btn btn--ghost">Explore Cinemas</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="profile-authenticated-view">
+      <!-- A. Profile Hero Section -->
+      <section class="profile-hero" aria-label="Member Profile Overview">
+        <div class="container">
+          <div class="glass-card profile-hero-card reveal">
+            <div class="profile-identity">
+              <div class="avatar-ring">
+                <img id="hero-avatar" src="assets/images/avatar-member.jpg" alt="Member portrait" />
+              </div>
+              <div>
+                <div class="profile-badges">
+                  <span class="badge-tier" id="hero-membership-type">CinePass Noir (Platinum)</span>
+                  <span class="badge-status" id="hero-membership-status">Active · Priority Lounge Access</span>
+                </div>
+                <h1 class="profile-name" id="hero-full-name">Aarish Mahmood</h1>
+                <div class="profile-meta-line">
+                  <span id="hero-email">aarish.mahmood@cinepass.pk</span>
+                  <span>·</span>
+                  <span>Member since <strong id="hero-member-since" style="color:var(--text-strong);">March 14, 2024</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-hero-actions">
+              <button type="button" class="btn btn--primary" id="open-edit-profile-hero">
+                Edit Profile
+              </button>
+              <a href="offers.html" class="btn btn--ghost">Member Offers</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- C. Personal Dashboard Statistics -->
+      <section class="dashboard-section container" aria-labelledby="stats-heading">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Personal Telemetry</span>
+            <h2 class="section-title" id="stats-heading">Cinema Activity Overview</h2>
+            <p class="section-subtitle">
+              Live metrics computed directly from your CinePass watch ledger, upcoming reservations, and curated favourites.
+            </p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="surface-card surface-card--interactive stat-card stagger-item" data-delay="0">
+            <div class="stat-card__top">
+              <span class="stat-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg>
+              </span>
+              <span class="eyebrow" style="font-size:0.65rem;">Completed</span>
+            </div>
+            <div class="stat-card__value" id="stat-movies-watched">0</div>
+            <div class="stat-card__label">Movies Watched</div>
+            <div class="stat-card__note">Verified from past screenings</div>
+          </article>
+
+          <article class="surface-card surface-card--interactive stat-card stagger-item" data-delay="70">
+            <div class="stat-card__top">
+              <span class="stat-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V9Z"/><path d="M13 7v10"/></svg>
+              </span>
+              <span class="eyebrow" style="font-size:0.65rem;">Reserved</span>
+            </div>
+            <div class="stat-card__value" id="stat-upcoming-bookings">0</div>
+            <div class="stat-card__label">Upcoming Bookings</div>
+            <div class="stat-card__note">Scheduled VIP &amp; IMAX seats</div>
+          </article>
+
+          <article class="surface-card surface-card--interactive stat-card stagger-item" data-delay="140">
+            <div class="stat-card__top">
+              <span class="stat-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </span>
+              <span class="eyebrow" style="font-size:0.65rem;">Watchlist</span>
+            </div>
+            <div class="stat-card__value" id="stat-favourite-movies">0</div>
+            <div class="stat-card__label">Favourite Movies</div>
+            <div class="stat-card__note">Synced to your collection</div>
+          </article>
+
+          <article class="surface-card surface-card--interactive stat-card stagger-item" data-delay="210">
+            <div class="stat-card__top">
+              <span class="stat-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+              <span class="eyebrow" style="font-size:0.65rem;">Lifetime</span>
+            </div>
+            <div class="stat-card__value" id="stat-total-spent">PKR 0</div>
+            <div class="stat-card__label">Total Amount Spent</div>
+            <div class="stat-card__note">Sum of all booking records</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- B & E. Profile Information + Account Settings -->
+      <section class="dashboard-section container" aria-label="Account Information and Settings">
+        <div class="profile-two-col">
+          <!-- B. Profile Information -->
+          <div class="surface-card info-panel reveal">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;">
+              <div>
+                <span class="eyebrow">Member Dossier</span>
+                <h2 class="section-title" style="font-size:1.65rem;">Profile Information</h2>
+              </div>
+              <button type="button" class="btn btn--ghost btn--sm" id="open-edit-profile-card">
+                Edit Details
+              </button>
+            </div>
+
+            <div class="info-list">
+              <div class="info-tile">
+                <div class="info-tile__label">Full Name</div>
+                <div class="info-tile__value" id="info-full-name">—</div>
+              </div>
+              <div class="info-tile">
+                <div class="info-tile__label">Email Address</div>
+                <div class="info-tile__value" id="info-email">—</div>
+              </div>
+              <div class="info-tile">
+                <div class="info-tile__label">Phone Number</div>
+                <div class="info-tile__value" id="info-phone">—</div>
+              </div>
+              <div class="info-tile">
+                <div class="info-tile__label">City</div>
+                <div class="info-tile__value" id="info-city">—</div>
+              </div>
+              <div class="info-tile" style="grid-column:1 / -1;">
+                <div class="info-tile__label">Membership Type</div>
+                <div class="info-tile__value" id="info-membership">—</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E. Account Settings -->
+          <div class="surface-card info-panel reveal">
+            <span class="eyebrow">Preferences &amp; Security</span>
+            <h2 class="section-title" style="font-size:1.65rem;">Account Settings</h2>
+
+            <div class="settings-list">
+              <div class="setting-row">
+                <div>
+                  <div class="setting-row__title">Personal Information</div>
+                  <div class="setting-row__desc">Update your name, contact details, or tier</div>
+                </div>
+                <button type="button" class="btn btn--ghost btn--sm" id="settings-edit-info-btn">Edit</button>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <div class="setting-row__title">Password &amp; Security</div>
+                  <div class="setting-row__desc" id="password-updated-note">Last updated October 18, 2026</div>
+                </div>
+                <button type="button" class="btn btn--ghost btn--sm" id="open-password-modal-btn">Change Password</button>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <div class="setting-row__title">Premiere &amp; IMAX Alerts</div>
+                  <div class="setting-row__desc">Early-access notifications for flagship releases</div>
+                </div>
+                <label class="cp-switch" aria-label="Toggle Premiere and IMAX Alerts">
+                  <input type="checkbox" id="pref-premiere-alerts" />
+                  <span class="cp-switch__track"></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <div class="setting-row__title">Booking &amp; Showtime Reminders</div>
+                  <div class="setting-row__desc">2-hour pre-screening lounge check-in reminders</div>
+                </div>
+                <label class="cp-switch" aria-label="Toggle Booking Reminders">
+                  <input type="checkbox" id="pref-booking-reminders" />
+                  <span class="cp-switch__track"></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <div class="setting-row__title">Exclusive Offers Digest</div>
+                  <div class="setting-row__desc">Member-only promo codes and weekend upgrades</div>
+                </div>
+                <label class="cp-switch" aria-label="Toggle Exclusive Offers Digest">
+                  <input type="checkbox" id="pref-exclusive-offers" />
+                  <span class="cp-switch__track"></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <div class="setting-row__title">Appearance Mode</div>
+                  <div class="setting-row__desc" id="appearance-mode-label">Cinematic Dark Mode active</div>
+                </div>
+                <label class="cp-switch" aria-label="Toggle Light or Dark Appearance">
+                  <input type="checkbox" id="pref-light-mode" />
+                  <span class="cp-switch__track"></span>
+                </label>
+              </div>
+
+              <div style="display:flex;justify-content:flex-end;padding-top:0.4rem;">
+                <button type="button" class="btn btn--danger btn--sm" id="logout-btn">Logout of Account</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- D. Favourite Movies -->
+      <section class="dashboard-section container" aria-labelledby="favourites-heading">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Curated Collection</span>
+            <h2 class="section-title" id="favourites-heading">Favourite Movies</h2>
+            <p class="section-subtitle">
+              Your handpicked cinema watchlist. Add films from the curated slate or remove titles anytime.
+            </p>
+          </div>
+          <button type="button" class="btn btn--burgundy" id="open-add-favourite-btn">
+            + Add Movie to Favourites
+          </button>
+        </div>
+
+        <div class="movies-grid" id="favourites-grid"></div>
+      </section>
+
+      <!-- Underlying Ledger (Transparency for Computed Statistics) -->
+      <section class="dashboard-section container" aria-labelledby="ledger-heading">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Sample Booking Ledger</span>
+            <h2 class="section-title" id="ledger-heading">Recent &amp; Upcoming Activity</h2>
+            <p class="section-subtitle">
+              Sample demonstration records powering your dashboard statistics above.
+            </p>
+          </div>
+        </div>
+        <div class="ledger-list reveal" id="bookings-ledger"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="cp-footer-slot"></div>
+
+  <!-- Modal: Edit Profile -->
+  <div class="cp-modal-backdrop" id="edit-profile-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="edit-profile-title">
+    <div class="cp-modal">
+      <div class="cp-modal__head">
+        <div>
+          <span class="eyebrow">Update Dossier</span>
+          <h2 class="cp-modal__title" id="edit-profile-title">Edit Profile Details</h2>
+          <p class="cp-modal__sub">Changes persist locally across all CinePass pages.</p>
+        </div>
+        <button type="button" class="icon-btn" data-modal-close aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="edit-profile-form" novalidate>
+        <div class="form-grid form-grid--2">
+          <div class="field">
+            <label class="field__label" for="edit-full-name">Full Name</label>
+            <input class="field__input" id="edit-full-name" name="fullName" type="text" required />
+            <span class="field__error" id="err-fullName"></span>
+          </div>
+          <div class="field">
+            <label class="field__label" for="edit-email">Email Address</label>
+            <input class="field__input" id="edit-email" name="email" type="email" required />
+            <span class="field__error" id="err-email"></span>
+          </div>
+          <div class="field">
+            <label class="field__label" for="edit-phone">Phone Number</label>
+            <input class="field__input" id="edit-phone" name="phone" type="tel" required />
+            <span class="field__error" id="err-phone"></span>
+          </div>
+          <div class="field">
+            <label class="field__label" for="edit-city">City</label>
+            <select class="field__select" id="edit-city" name="city" required>
+              <option value="Lahore">Lahore</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Rawalpindi">Rawalpindi</option>
+              <option value="Faisalabad">Faisalabad</option>
+              <option value="Multan">Multan</option>
+            </select>
+            <span class="field__error" id="err-city"></span>
+          </div>
+          <div class="field" style="grid-column:1 / -1;">
+            <label class="field__label" for="edit-membership">Membership Type</label>
+            <select class="field__select" id="edit-membership" name="membershipType" required>
+              <option value="CinePass Noir (Platinum)">CinePass Noir (Platinum)</option>
+              <option value="CinePass Gold Reserve">CinePass Gold Reserve</option>
+              <option value="CinePass Premiere Student">CinePass Premiere Student</option>
+              <option value="CinePass Classic Member">CinePass Classic Member</option>
+            </select>
+            <span class="field__error" id="err-membershipType"></span>
+          </div>
+        </div>
+
+        <div class="cp-modal__foot">
+          <button type="button" class="btn btn--ghost" data-modal-close>Cancel</button>
+          <button type="submit" class="btn btn--primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Change Password (Simulated) -->
+  <div class="cp-modal-backdrop" id="change-password-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="change-pw-title">
+    <div class="cp-modal">
+      <div class="cp-modal__head">
+        <div>
+          <span class="eyebrow">Account Security</span>
+          <h2 class="cp-modal__title" id="change-pw-title">Change Password</h2>
+          <p class="cp-modal__sub">Simulated security interface with live strength &amp; match validation.</p>
+        </div>
+        <button type="button" class="icon-btn" data-modal-close aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="change-password-form" class="form-grid" novalidate>
+        <div class="field">
+          <label class="field__label" for="pw-current">Current Password</label>
+          <input class="field__input" id="pw-current" type="password" placeholder="Enter current password" required />
+          <span class="field__error" id="err-pw-current"></span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="pw-new">New Password (min. 8 characters)</label>
+          <input class="field__input" id="pw-new" type="password" placeholder="Create strong password" required />
+          <span class="field__error" id="err-pw-new"></span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="pw-confirm">Confirm New Password</label>
+          <input class="field__input" id="pw-confirm" type="password" placeholder="Repeat new password" required />
+          <span class="field__error" id="err-pw-confirm"></span>
+        </div>
+        <div class="cp-modal__foot">
+          <button type="button" class="btn btn--ghost" data-modal-close>Cancel</button>
+          <button type="submit" class="btn btn--primary">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Add Favourite Movie -->
+  <div class="cp-modal-backdrop" id="add-favourite-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="add-fav-title">
+    <div class="cp-modal cp-modal--wide">
+      <div class="cp-modal__head">
+        <div>
+          <span class="eyebrow">Curate Watchlist</span>
+          <h2 class="cp-modal__title" id="add-fav-title">Add Movie to Favourites</h2>
+          <p class="cp-modal__sub">Select any film from the CinePass showcase to add it to your profile.</p>
+        </div>
+        <button type="button" class="icon-btn" data-modal-close aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="add-favourite-list" class="movies-grid" style="grid-template-columns:repeat(auto-fill,minmax(190px,1fr));"></div>
+
+      <div class="cp-modal__foot">
+        <button type="button" class="btn btn--ghost" data-modal-close>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

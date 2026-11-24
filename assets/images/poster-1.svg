@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090909"/>
+      <stop offset="52%" stop-color="#2D0814"/>
+      <stop offset="82%" stop-color="#500F24"/>
+      <stop offset="100%" stop-color="#14070B"/>
+    </linearGradient>
+    <radialGradient id="eclipse" cx="50%" cy="38%" r="34%">
+      <stop offset="0%" stop-color="#090909"/>
+      <stop offset="46%" stop-color="#090909"/>
+      <stop offset="51%" stop-color="#EAD092"/>
+      <stop offset="59%" stop-color="#D6B46A" stop-opacity="0.72"/>
+      <stop offset="78%" stop-color="#500F24" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#090909" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="monolith" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#242225"/>
+      <stop offset="48%" stop-color="#0C0C0E"/>
+      <stop offset="100%" stop-color="#1E1318"/>
+    </linearGradient>
+    <linearGradient id="goldEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAD092"/>
+      <stop offset="100%" stop-color="#500F24" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#sky1)"/>
+  <circle cx="300" cy="340" r="240" fill="url(#eclipse)"/>
+  <!-- Horizon dunes -->
+  <path d="M0 680 Q150 615 320 660 T600 635 L600 900 L0 900 Z" fill="#1C0810"/>
+  <path d="M0 740 Q210 690 410 735 T600 710 L600 900 L0 900 Z" fill="#0B090A"/>
+  <!-- Towering Monolith -->
+  <polygon points="262,250 338,250 370,790 230,790" fill="url(#monolith)"/>
+  <polygon points="262,250 270,250 244,790 230,790" fill="url(#goldEdge)" opacity="0.65"/>
+  <!-- Minimalist orbital rings -->
+  <ellipse cx="300" cy="340" rx="215" ry="42" fill="none" stroke="#D6B46A" stroke-opacity="0.35" stroke-width="1.2" transform="rotate(-14 300 340)"/>
+  <circle cx="130" cy="180" r="1.6" fill="#F5F0E8" opacity="0.7"/>
+  <circle cx="485" cy="140" r="2" fill="#EAD092" opacity="0.8"/>
+  <circle cx="430" cy="245" r="1.2" fill="#F5F0E8" opacity="0.5"/>
+  <circle cx="170" cy="270" r="1.4" fill="#D6B46A" opacity="0.6"/>
+  <!-- Subtle gold hairline frame -->
+  <rect x="24" y="24" width="552" height="852" rx="8" fill="none" stroke="#D6B46A" stroke-opacity="0.26" stroke-width="1.2"/>
+</svg>

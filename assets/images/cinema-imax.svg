@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+  <defs>
+    <linearGradient id="hallWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090909"/>
+      <stop offset="60%" stop-color="#19080E"/>
+      <stop offset="100%" stop-color="#090909"/>
+    </linearGradient>
+    <radialGradient id="screenGlow" cx="50%" cy="38%" r="48%">
+      <stop offset="0%" stop-color="#F5F0E8" stop-opacity="0.92"/>
+      <stop offset="45%" stop-color="#EAD092" stop-opacity="0.45"/>
+      <stop offset="80%" stop-color="#500F24" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#090909" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#hallWall)"/>
+  <!-- Giant Curved IMAX Screen -->
+  <ellipse cx="640" cy="300" rx="520" ry="260" fill="url(#screenGlow)"/>
+  <path d="M180 120 Q640 85 1100 120 L1080 430 Q640 460 200 430 Z" fill="#1A181A" stroke="#D6B46A" stroke-opacity="0.48" stroke-width="2.5"/>
+  <path d="M210 145 Q640 115 1070 145 L1052 405 Q640 432 228 405 Z" fill="url(#screenGlow)" opacity="0.48"/>
+  <!-- Acoustic Side Ribbing -->
+  <g stroke="#D6B46A" stroke-opacity="0.22" stroke-width="2">
+    <line x1="65" y1="80" x2="155" y2="470"/>
+    <line x1="115" y1="70" x2="175" y2="460"/>
+    <line x1="1215" y1="80" x2="1125" y2="470"/>
+    <line x1="1165" y1="70" x2="1105" y2="460"/>
+  </g>
+  <!-- Tiered Velvet Seating Rows -->
+  <path d="M120 555 Q640 505 1160 555 L1190 615 Q640 565 90 615 Z" fill="#3B0B1B"/>
+  <path d="M80 625 Q640 572 1200 625 L1235 695 Q640 645 45 695 Z" fill="#500F24"/>
+  <path d="M35 700 Q640 648 1245 700 L1280 800 L0 800 Z" fill="#230710"/>
+  <!-- Golden Aisle Step Lighting -->
+  <path d="M125 552 Q640 502 1155 552" fill="none" stroke="#D6B46A" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M85 622 Q640 569 1195 622" fill="none" stroke="#D6B46A" stroke-opacity="0.65" stroke-width="2"/>
+  <path d="M40 697 Q640 645 1240 697" fill="none" stroke="#D6B46A" stroke-opacity="0.75" stroke-width="2.5"/>
+</svg>

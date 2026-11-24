@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900">
+  <defs>
+    <linearGradient id="noirBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090909"/>
+      <stop offset="55%" stop-color="#1E0810"/>
+      <stop offset="100%" stop-color="#090909"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="50%" cy="32%" r="48%">
+      <stop offset="0%" stop-color="#EAD092" stop-opacity="0.85"/>
+      <stop offset="30%" stop-color="#D6B46A" stop-opacity="0.3"/>
+      <stop offset="70%" stop-color="#500F24" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#090909" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wetStreet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#280A14"/>
+      <stop offset="100%" stop-color="#070708"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#noirBg)"/>
+  <circle cx="300" cy="295" r="290" fill="url(#lampGlow)"/>
+  <!-- Architectural corridor -->
+  <rect x="0" y="90" width="145" height="530" fill="#100D0F"/>
+  <rect x="455" y="90" width="145" height="530" fill="#100D0F"/>
+  <rect x="145" y="130" width="55" height="490" fill="#170E12"/>
+  <rect x="400" y="130" width="55" height="490" fill="#170E12"/>
+  <!-- Wet boulevard & reflections -->
+  <rect x="0" y="615" width="600" height="285" fill="url(#wetStreet)"/>
+  <ellipse cx="300" cy="680" rx="140" ry="18" fill="#D6B46A" opacity="0.2"/>
+  <ellipse cx="300" cy="740" rx="190" ry="22" fill="#500F24" opacity="0.45"/>
+  <!-- Solitary Trench Silhouette -->
+  <path d="M286 430 C286 418 314 418 314 430 L328 585 L312 630 L288 630 L272 585 Z" fill="#070708"/>
+  <circle cx="300" cy="405" r="16" fill="#070708"/>
+  <ellipse cx="300" cy="396" rx="28" ry="5" fill="#070708"/>
+  <!-- Crimson marquee light streaks -->
+  <line x1="80" y1="150" x2="80" y2="560" stroke="#7A1838" stroke-width="3" opacity="0.7"/>
+  <line x1="520" y1="150" x2="520" y2="560" stroke="#D6B46A" stroke-width="2" opacity="0.55"/>
+  <!-- Diagonal atmospheric rain -->
+  <g stroke="#F5F0E8" stroke-opacity="0.16" stroke-width="1">
+    <line x1="120" y1="80" x2="95" y2="210"/>
+    <line x1="210" y1="110" x2="185" y2="250"/>
+    <line x1="390" y1="70" x2="365" y2="220"/>
+    <line x1="470" y1="160" x2="445" y2="300"/>
+    <line x1="255" y1="310" x2="230" y2="460"/>
+    <line x1="350" y1="340" x2="325" y2="490"/>
+  </g>
+  <rect x="24" y="24" width="552" height="852" rx="8" fill="none" stroke="#D6B46A" stroke-opacity="0.26" stroke-width="1.2"/>
+</svg>

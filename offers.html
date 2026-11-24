@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offers &amp; Discounts — CinePass | Your Movie. Your Seat. Your Experience.</title>
+  <meta name="description" content="Explore CinePass promotional offers, student deals, weekend specials, and interactive coupon savings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <div id="cp-header-slot"></div>
+
+  <main class="page-shell">
+    <!-- A. Hero Section -->
+    <section class="hero-banner" aria-label="Offers and Rewards Hero">
+      <div class="hero-banner__media">
+        <img src="assets/images/hero-offers.jpg" alt="Luxury VIP cinema lounge with warm champagne gold pendant lights" />
+        <div class="hero-banner__scrim"></div>
+      </div>
+
+      <div class="container hero-banner__content">
+        <div class="offers-hero-grid">
+          <div class="reveal">
+            <span class="eyebrow">CinePass Privileges · Demonstration Campaign</span>
+            <h1 class="hero-banner__title">Exclusive Experiences. Extraordinary Savings.</h1>
+            <p class="hero-banner__subtitle">
+              Unlock premium movie experiences with exclusive CinePass rewards and special offers.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.85rem;margin-top:1.5rem;">
+              <a href="#offers-catalog" class="btn btn--primary">Explore Offers</a>
+              <a href="#coupon-calculator" class="btn btn--ghost" style="color:#F5F0E8;border-color:rgba(214,180,106,0.45);">Redeem Coupon Code</a>
+            </div>
+          </div>
+
+          <div class="promo-showcase-card reveal" aria-label="Featured VIP Reward Highlight">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+              <span class="offer-card__deal">UP TO 30% OFF</span>
+              <span class="offer-card__demo-tag" style="color:rgba(245,240,232,0.75);border-color:rgba(245,240,232,0.22);">Sample Offer</span>
+            </div>
+            <h2 style="font-family:var(--font-display);font-size:1.55rem;margin-top:1rem;color:#FFFFFF;">
+              Noir &amp; Weekend Premiere Privileges
+            </h2>
+            <p style="font-size:0.88rem;color:rgba(245,240,232,0.8);margin-top:0.45rem;">
+              Use <strong style="color:var(--cp-gold-bright);font-family:var(--font-mono);">WEEKEND20</strong> or <strong style="color:var(--cp-gold-bright);font-family:var(--font-mono);">NOIR30</strong> in the live calculator below to preview instant ticket savings.
+            </p>
+            <div style="margin-top:1.1rem;padding-top:0.85rem;border-top:1px solid rgba(245,240,232,0.14);display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(245,240,232,0.7);">
+              <span>Valid through Dec 31, 2026</span>
+              <span>Instant Verification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- D & B. Offer Categories + Featured Offers -->
+    <section class="container" id="offers-catalog" style="padding-top:3.5rem;" aria-labelledby="offers-heading">
+      <div class="section-header reveal">
+        <div>
+          <span class="eyebrow">Curated Demonstration Offers</span>
+          <h2 class="section-title" id="offers-heading">Featured Rewards &amp; Packages</h2>
+          <p class="section-subtitle">
+            Filter by membership tier or occasion. Copy any demonstration promo code or apply it directly to calculate your savings.
+          </p>
+        </div>
+
+        <div class="filter-pills" role="tablist" aria-label="Filter offers by category" id="offer-category-tabs">
+          <button type="button" class="filter-pill is-active" data-category="all" role="tab" aria-selected="true">All Offers</button>
+          <button type="button" class="filter-pill" data-category="student" role="tab" aria-selected="false">Student Deals</button>
+          <button type="button" class="filter-pill" data-category="weekend" role="tab" aria-selected="false">Weekend Deals</button>
+          <button type="button" class="filter-pill" data-category="family" role="tab" aria-selected="false">Family Packages</button>
+          <button type="button" class="filter-pill" data-category="exclusive" role="tab" aria-selected="false">Exclusive Rewards</button>
+        </div>
+      </div>
+
+      <div class="offers-grid" id="offers-grid"></div>
+    </section>
+
+    <!-- C. Interactive Coupon System -->
+    <section class="container" id="coupon-calculator" style="padding-top:4rem;" aria-labelledby="coupon-heading">
+      <div class="glass-card coupon-panel reveal">
+        <div>
+          <span class="eyebrow">Interactive Coupon Engine</span>
+          <h2 class="section-title" id="coupon-heading">Validate &amp; Calculate Savings</h2>
+          <p class="section-subtitle">
+            Enter a promo code to validate expiry, seat eligibility, and exact discount calculations on sample ticket pricing.
+          </p>
+
+          <div class="form-grid form-grid--2" style="margin-top:1.35rem;">
+            <div class="field">
+              <label class="field__label" for="calc-tier">Sample Seat Class</label>
+              <select class="field__select" id="calc-tier">
+                <option value="1200">Classic Auditorium — PKR 1,200 / seat</option>
+                <option value="1800" selected>Gold Class Lounge — PKR 1,800 / seat</option>
+                <option value="2400">IMAX Laser Premiere — PKR 2,400 / seat</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label" for="calc-qty">Number of Tickets</label>
+              <select class="field__select" id="calc-qty">
+                <option value="1">1 Ticket</option>
+                <option value="2" selected>2 Tickets</option>
+                <option value="3">3 Tickets</option>
+                <option value="4">4 Tickets</option>
+                <option value="5">5 Tickets</option>
+                <option value="6">6 Tickets</option>
+              </select>
+            </div>
+          </div>
+
+          <form id="coupon-form" novalidate>
+            <div class="coupon-input-row">
+              <label for="coupon-code-input" class="sr-only">Promo Code</label>
+              <input
+                type="text"
+                id="coupon-code-input"
+                class="field__input"
+                placeholder="Enter code (e.g. CINE10, WEEKEND20)"
+                autocomplete="off"
+              />
+              <button type="submit" class="btn btn--primary" id="apply-coupon-btn">Apply Coupon</button>
+              <button type="button" class="btn btn--ghost" id="clear-coupon-btn" style="display:none;">Remove</button>
+            </div>
+            <div id="coupon-feedback" style="margin-top:0.6rem;font-size:0.86rem;min-height:1.3em;"></div>
+          </form>
+
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.85rem;">
+            Sample active codes: <code>CINE10</code> (10%), <code>WEEKEND20</code> (20%), <code>STUDENT15</code> (15%), <code>FAMILY25</code> (25%, 4+ tickets), <code>CINEBOGO</code> (1 free on 3+ tickets), <code>NOIR30</code> (30%).
+            Test expired code validation with <code>SUMMER25</code>.
+          </p>
+        </div>
+
+        <aside class="coupon-summary-box" aria-label="Discount Calculation Summary">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem;">
+            <span class="eyebrow">Fare Breakdown</span>
+            <span id="active-coupon-pill" class="badge-tier" style="display:none;"></span>
+          </div>
+
+          <div class="summary-line">
+            <span>Tickets (<span id="sum-qty">2</span> × <span id="sum-unit">PKR 1,800</span>)</span>
+            <strong id="sum-subtotal">PKR 3,600</strong>
+          </div>
+          <div class="summary-line">
+            <span>Applied Discount (<span id="sum-discount-label">None</span>)</span>
+            <strong id="sum-discount" style="color:var(--status-success);">PKR 0</strong>
+          </div>
+          <div class="summary-line summary-line--total">
+            <span>Estimated Total</span>
+            <span id="sum-total" style="color:var(--cp-gold-bright);">PKR 3,600</span>
+          </div>
+
+          <p style="font-size:0.76rem;color:var(--text-muted);margin-top:1rem;">
+            Demonstration savings calculator only. No real payment is processed on this page.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="cp-footer-slot"></div>
+
+  <script type="module" src="js/offers.js"></script>
+</body>
+</html>

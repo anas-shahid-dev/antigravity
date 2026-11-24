@@ -1,0 +1,124 @@
+/* ==========================================================================
+   CinePass Design System — Tokens & Theme Architecture
+   Palette: Deep Burgundy (#500F24), Rich Black (#090909), Charcoal (#171717),
+            Champagne Gold (#D6B46A), Warm Ivory (#F5F0E8), White (#FFFFFF)
+   ========================================================================== */
+
+:root {
+  /* Core Brand Palette */
+  --cp-burgundy: #500F24;
+  --cp-burgundy-deep: #320715;
+  --cp-burgundy-bright: #7A1838;
+  --cp-black: #090909;
+  --cp-charcoal: #171717;
+  --cp-charcoal-elevated: #202022;
+  --cp-gold: #D6B46A;
+  --cp-gold-bright: #EAD092;
+  --cp-gold-muted: #A98945;
+  --cp-ivory: #F5F0E8;
+  --cp-white: #FFFFFF;
+
+  /* Semantic Dark Theme (Default Cinematic Mode) */
+  --bg-page: #090909;
+  --bg-surface: #121214;
+  --bg-surface-elevated: #171717;
+  --bg-surface-glass: rgba(23, 23, 23, 0.72);
+  --bg-nav: rgba(9, 9, 9, 0.78);
+  --bg-input: rgba(255, 255, 255, 0.045);
+  --bg-input-hover: rgba(255, 255, 255, 0.075);
+  --bg-pill: rgba(255, 255, 255, 0.06);
+  --bg-pill-hover: rgba(214, 180, 106, 0.14);
+
+  --text-primary: #F5F0E8;
+  --text-strong: #FFFFFF;
+  --text-secondary: rgba(245, 240, 232, 0.72);
+  --text-muted: rgba(245, 240, 232, 0.5);
+
+  --border-subtle: rgba(245, 240, 232, 0.09);
+  --border-medium: rgba(245, 240, 232, 0.16);
+  --border-gold: rgba(214, 180, 106, 0.36);
+  --border-gold-strong: rgba(214, 180, 106, 0.68);
+
+  --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 18px 44px rgba(0, 0, 0, 0.48);
+  --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.68);
+  --shadow-gold-glow: 0 0 40px rgba(214, 180, 106, 0.16);
+  --shadow-burgundy-glow: 0 16px 48px rgba(80, 15, 36, 0.42);
+
+  /* Status Colors */
+  --status-success: #46C98B;
+  --status-success-bg: rgba(70, 201, 139, 0.14);
+  --status-error: #F26B7A;
+  --status-error-bg: rgba(242, 107, 122, 0.14);
+  --status-warning: #E8B85A;
+  --status-warning-bg: rgba(232, 184, 90, 0.14);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Spacing & Layout */
+  --container-max: 1280px;
+  --nav-height: 76px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Motion Physics (Apple-inspired exponential ease-out) */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-spring: cubic-bezier(0.22, 1.15, 0.36, 1);
+  --dur-fast: 180ms;
+  --dur-med: 340ms;
+  --dur-slow: 620ms;
+  --dur-cinematic: 900ms;
+}
+
+/* Warm Ivory Light Mode (Consistent Editorial Theme) */
+[data-theme="light"] {
+  --bg-page: #F5F0E8;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FCF9F4;
+  --bg-surface-glass: rgba(255, 255, 255, 0.82);
+  --bg-nav: rgba(245, 240, 232, 0.84);
+  --bg-input: rgba(23, 23, 23, 0.045);
+  --bg-input-hover: rgba(23, 23, 23, 0.08);
+  --bg-pill: rgba(23, 23, 23, 0.06);
+  --bg-pill-hover: rgba(80, 15, 36, 0.1);
+
+  --text-primary: #171717;
+  --text-strong: #090909;
+  --text-secondary: rgba(23, 23, 23, 0.72);
+  --text-muted: rgba(23, 23, 23, 0.54);
+
+  --border-subtle: rgba(23, 23, 23, 0.09);
+  --border-medium: rgba(23, 23, 23, 0.16);
+  --border-gold: rgba(169, 137, 69, 0.42);
+  --border-gold-strong: rgba(80, 15, 36, 0.55);
+
+  --shadow-sm: 0 6px 20px rgba(23, 23, 23, 0.06);
+  --shadow-md: 0 18px 44px rgba(23, 23, 23, 0.09);
+  --shadow-lg: 0 28px 70px rgba(23, 23, 23, 0.14);
+  --shadow-gold-glow: 0 10px 34px rgba(214, 180, 106, 0.24);
+  --shadow-burgundy-glow: 0 14px 40px rgba(80, 15, 36, 0.18);
+
+  --status-success: #168052;
+  --status-success-bg: rgba(22, 128, 82, 0.12);
+  --status-error: #B8293D;
+  --status-error-bg: rgba(184, 41, 61, 0.11);
+  --status-warning: #A37010;
+  --status-warning-bg: rgba(163, 112, 16, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.01ms;
+    --dur-med: 0.01ms;
+    --dur-slow: 0.01ms;
+    --dur-cinematic: 0.01ms;
+  }
+}
